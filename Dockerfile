@@ -1,3 +1,9 @@
-FROM nginx:alpine
+FROM node:14
 
-EXPOSE 80
+WORKDIR /app
+
+RUN npm install
+
+EXPOSE 3000
+
+CMD ["npm", "start"]
