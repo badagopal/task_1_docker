@@ -1,9 +1,8 @@
-FROM node:14
 
-WORKDIR /app
+FROM ubuntu:latest
 
-RUN npm install
+RUN apt-get update && apt-get install -y apache2 && apt-get clean
 
-EXPOSE 3000
+EXPOSE 80
 
-CMD ["npm", "start"]
+CMD ["apache2ctl", "-D", "FOREGROUND"]
